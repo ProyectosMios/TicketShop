@@ -3,11 +3,11 @@
 @section('title', 'Administracion')
 
 @section('content_header')
-    <h1>Entradas conciertos</h1>
+    <h1>Ticket Shop</h1>
 @stop
 
 @section('content')
-    <p>Bienvenido a la parte administrativa de la página Entradas Conciertos</p>
+    <p>Bienvenido a la parte administrativa de la página Ticket Shop</p>
 @stop
 
 @section('css')
