@@ -3,9 +3,7 @@
 @section('title', 'Crear Conciertos')
 
 @section("content")
-    <div class="flex justify-center flex-wrap p-4 mt-5">
-        @include("admin.conciertos.form")
-    </div>
+    @include("admin.conciertos.formulario")
 @endsection
 
 @section('css')
