@@ -1,27 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="sm:container sm:mx-auto sm:mt-10">
-    <div class="w-full sm:px-6">
+    @if (session('status'))
+        <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
 
-        @if (session('status'))
-            <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                {{ session('status') }}
+    <header class="bg-white shadow">
+        <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900">Ultimos conciertos</h1>
+        </div>
+    </header>
+    <main>
+        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <!-- Replace with your content -->
+            <div class="px-4 py-6 sm:px-0">
+                <!-- <div class="h-96 rounded-lg border-4 border-dashed border-gray-200"></div> -->
+                
             </div>
-        @endif
-
-        <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
-
-            <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                Dashboard
-            </header>
-
-            <div class="w-full p-6">
-                <p class="text-gray-700">
-                    You are logged in!
-                </p>
-            </div>
-        </section>
-    </div>
-</main>
+            <!-- /End replace -->
+        </div>
+    </main>
 @endsection

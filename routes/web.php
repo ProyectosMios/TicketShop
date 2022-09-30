@@ -20,3 +20,7 @@ Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/concierto',[\App\Http\Controllers\ConciertoController::class, 'index'])->name('concierto.index');
+
+Route::get('/artista',[\App\Http\Controllers\ArtistaController::class, 'index'])->name('artista.index');
+

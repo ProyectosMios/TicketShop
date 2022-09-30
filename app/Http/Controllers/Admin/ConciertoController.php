@@ -39,10 +39,10 @@ class ConciertoController extends Controller
     {
         $concierto = new Concierto;
         $title = __("Añadir concierto");
-        $textButton = __("Añadir");
-        $route = route("admin.conciertos.store");
-        $provincias = Provincia::all();
-        $artistas = Artista::all();
+        $textButton = __("Crear concierto");
+        $route = "admin.conciertos.store";
+        $provincias = Provincia::pluck('nombre','id');
+        $artistas = Artista::pluck('nombre','id');
         return view("admin.conciertos.create", compact("title", "textButton", "route", "concierto","provincias","artistas"));
     }
 
@@ -55,13 +55,15 @@ class ConciertoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            "imagen" => "required",
+            "nombre" => "required",
             "provincia_id" => "required",
             "artista_id" => "required",
             "fechacelebracion" => "required",
-            "informacion" => "nullable|string|min:10",
+            "informacion" => "required|string|min:10",
             "precio" => "required"
         ]);
-        Concierto::create($request->only("provincia_id","artista_id","fechacelebracion","informacion","precio"));
+        Concierto::create($request->only("imagen","nombre","provincia_id","artista_id","fechacelebracion","informacion","precio"));
 
         return redirect(route("admin.conciertos.index"))
         ->with("success",__("Concierto creado!"));
@@ -105,13 +107,15 @@ class ConciertoController extends Controller
     public function update(Request $request, Concierto $concierto)
     {
         $this->validate($request, [
+            "imagen" => "required",
+            "nombre" => "required",
             "provincia_id" => "required",
             "artista_id" => "required",
-            "informacion" => "nullable|string|min:10",
+            "informacion" => "required|string|min:10",
             "fechacelebracion" => "required",
             "precio" => "required"
         ]);
-        $concierto->fill($request->only("provincia_id", "artista_id", "informacion", "fechacelebracion", "precio"))->save();
+        $concierto->fill($request->only("imagen","nombre","provincia_id", "artista_id", "informacion", "fechacelebracion", "precio"))->save();
         return redirect(route("admin.conciertos.index"))
             ->with("success",__("Concierto actualizado!"));
     }

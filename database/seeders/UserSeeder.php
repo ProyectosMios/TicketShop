@@ -20,14 +20,23 @@ class UserSeeder extends Seeder
             'name' => 'Aaron',
             'email' => 'aaronsuarezsecades@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('aaron')
+            'password' => bcrypt('aaron'),
+            'foto' => 'aaron.jpg'
         ])-> assignRole('admin');
 
-        foreach(Role::all() as $role) {
+        $usuario = User::create([
+            'name' => 'Tino',
+            'email' => 'tinodeve@hotmail.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('tinodeve'),
+            'foto' => 'tino.jpg'
+        ])-> assignRole('usuario');
+        
+        /*foreach(Role::all() as $role) {
             $users = User::factory(9)->create();
             foreach($users as $user){
                $user->assignRole('usuario');
             }
-         }
+        }*/
     }
 }
