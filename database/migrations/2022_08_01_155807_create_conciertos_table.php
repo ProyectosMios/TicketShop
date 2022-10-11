@@ -15,7 +15,6 @@ class CreateConciertosTable extends Migration
     {
         Schema::create('conciertos', function (Blueprint $table) {
             $table->id();
-            $table->string('imagen');
             $table->string('nombre');
             $table->date('fechacelebracion');
             $table->string('informacion',5000);

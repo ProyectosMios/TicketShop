@@ -41,7 +41,7 @@
                         @endforeach
                     </td>
 
-                    <td class="border px-4 py-2">{{ $concierto->informacion }}</td>
+                    <td class="border px-4 py-2">{!! $concierto->informacion !!}</td>
 
                     <td class="border px-4 py-2">{{ $concierto->fechacelebracion }}</td>
 

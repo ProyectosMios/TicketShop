@@ -9,7 +9,7 @@ class Concierto extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['imagen','nombre','provincia_id','artista_id','fechacelebracion','informacion','precio'];
+    protected $fillable = ['nombre','provincia_id','artista_id','fechacelebracion','informacion','precio'];
 
     public function artistas() {
         return $this->belongsTo(Artista::class);
@@ -17,5 +17,10 @@ class Concierto extends Model
 
     public function provincias() {
         return $this->belongsTo(Provincia::class);
+    }
+
+    //Relacion uno a uno polimorfica
+    public function imagen(){
+        return $this->morphOne(Imagen::class, 'imagenable');
     }
 }

@@ -12,6 +12,19 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <style>
+        .image-wrap{
+            position: relative;
+            padding-bottom: 70%;
+        }
+
+        .image-wrap img{
+            position: absolute;
+            object-fit: cover;
+            width: 50%;
+            height: 100%;
+        }
+    </style>
 @stop
 
 @section('js')
@@ -23,6 +36,20 @@
             .catch( error => {
                 console.error( error );
             } );
+
+        //Cambiar el cartel cuando lo selecciono.
+        document.getElementById("imagen").addEventListener('change', cambiarCartel);
+
+        function cambiarCartel(event){
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = (event) => {
+                document.getElementById('cartel').setAttribute('src', event.target.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
     </script>
     
     <script> console.log('Hi!'); </script>

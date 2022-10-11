@@ -8,6 +8,8 @@ use App\Models\Concierto;
 use App\Models\Provincia;
 use App\Models\Artista;
 
+use Illuminate\Support\Facades\Storage;
+
 class ConciertoController extends Controller
 {
     public function __constructor(){
@@ -55,7 +57,6 @@ class ConciertoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            "imagen" => "required",
             "nombre" => "required",
             "provincia_id" => "required",
             "artista_id" => "required",
@@ -63,7 +64,16 @@ class ConciertoController extends Controller
             "informacion" => "required|string|min:10",
             "precio" => "required"
         ]);
-        Concierto::create($request->only("imagen","nombre","provincia_id","artista_id","fechacelebracion","informacion","precio"));
+
+        $concierto = Concierto::create($request->only("nombre","provincia_id","artista_id","fechacelebracion","informacion","precio"));
+        
+        if($request->file('imagen')){
+            $imagen = Storage::put('conciertos',$request->file('imagen'));
+
+            $concierto->imagen()->create([
+                'direccion' => $imagen
+            ]);
+        }
 
         return redirect(route("admin.conciertos.index"))
         ->with("success",__("Concierto creado!"));

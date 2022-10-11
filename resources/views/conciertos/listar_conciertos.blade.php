@@ -13,7 +13,7 @@
                 <!-- <div class="h-96 rounded-lg border-4 border-dashed border-gray-200"></div> -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 py-8">
                     @forelse ($conciertos as $concierto)
-                        <article class="w-full h-80 bg-contain bg-center" style="background-image: url(../conciertos/{{ $concierto->imagen }})">
+                        <article class="w-full h-80 bg-contain bg-center" style="background-image: url(@if($concierto->imagen) {{ Storage::url($concierto->imagen->direccion) }} @else ../../imagen/logo.png @endif)">
                             <div class="w-full h-full px-8 flex flex-col justify-center">
                                 <h1 class="text-4xl text-white leading-8 font-bold">
                                     <a href="">

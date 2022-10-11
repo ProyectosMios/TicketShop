@@ -15,7 +15,6 @@ class ConciertoSeeder extends Seeder
     public function run()
     {
         $concierto = Concierto::create([
-            'imagen' => 'foo-fighters-madrid-2022.jpg',
             'nombre' => 'Concierto Foo Figthers',
             'provincia_id' => 31,
             'artista_id' => 1,

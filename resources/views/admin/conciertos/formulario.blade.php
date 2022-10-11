@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-        {!! Form::open(['route' => $route,'autocomplete' => 'off']) !!}
+        {!! Form::open(['route' => $route,'autocomplete' => 'off','files' => true]) !!}
             {!! Form::hidden('imagen', 'imagen.png') !!}
             <div class="form-group">
                 {!! Form::label('provincia_id', 'Provincia: ') !!}
@@ -16,6 +16,22 @@
                 @error("nombre")
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="image-wrap">
+                        <img id="cartel" src="../../imagen/logo.png" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        {!! Form::label('imagen', 'Cartel que vamos a poner:') !!}
+                        {!! Form::file('imagen', ['class' => 'form-control-file']) !!}
+                        @error('imagen')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 {!! Form::label('fechacelebracion', 'Fecha del concierto: ') !!}
