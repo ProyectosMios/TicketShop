@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Concierto;
+use App\Models\Provincia;
+use App\Models\Artista;
+
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -23,6 +28,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $diaActual = Carbon::now();
+        $diaFinal = Carbon::now()->addDay(7);
+        $conciertos = Concierto::whereBetween('fechacelebracion',[$diaActual, $diaFinal])->oldest('fechacelebracion')->paginate(10);
+        $provincias = Provincia::all();
+        $artistas = Artista::all();
+        return view('home',compact("conciertos","provincias","artistas"));
     }
 }

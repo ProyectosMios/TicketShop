@@ -16,7 +16,7 @@
                         <article class="w-full h-80 bg-contain bg-center" style="background-image: url(@if($concierto->imagen) {{ Storage::url($concierto->imagen->direccion) }} @else ../../imagen/logo.png @endif)">
                             <div class="w-full h-full px-8 flex flex-col justify-center">
                                 <h1 class="text-4xl text-white leading-8 font-bold">
-                                    <a href="">
+                                    <a href="{{ route('concierto.show',$concierto)}}">
                                         {{ $concierto->nombre }}
                                     </a>
                                 </h1>

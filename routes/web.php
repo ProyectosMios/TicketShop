@@ -22,5 +22,7 @@ Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->nam
 
 Route::get('/concierto',[\App\Http\Controllers\ConciertoController::class, 'index'])->name('concierto.index');
 
+Route::get('/concierto/{concierto}',[\App\Http\Controllers\ConciertoController::class, 'show'])->name('concierto.show');
+
 Route::get('/artista',[\App\Http\Controllers\ArtistaController::class, 'index'])->name('artista.index');
 

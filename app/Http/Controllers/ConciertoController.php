@@ -24,4 +24,8 @@ class ConciertoController extends Controller
         $artistas = Artista::all();
         return view('conciertos.listar_conciertos',compact("conciertos","provincias","artistas"));
     }
+
+    public function show(Concierto $concierto){
+        return view('conciertos.show',compact('concierto'));
+    }
 }
