@@ -16,7 +16,11 @@
                 Precio entrada: {{ $concierto->precio }}
             </div>
             <div class="text-center">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Comprar entradas</button>
+                <form action="{{route('cart.add')}}" method="post">
+                    @csrf
+                    <input type="hidden" name="concierto_id" value="{{$concierto->id}}">
+                    <input type="submit" name="btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" value="Comprar entradas">
+                </form>
             </div>
         </div>
     </div>

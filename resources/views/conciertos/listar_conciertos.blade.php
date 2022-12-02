@@ -34,6 +34,6 @@
         </div>
     </main>
     <div class="mt-3">
-
+        {{ $conciertos->links() }}
     </div>
 @stop

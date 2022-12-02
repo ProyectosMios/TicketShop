@@ -28,6 +28,13 @@
               @can('admin.home')
                 <a href="{{ route('admin.home') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Administración</a>
               @endcan
+              <div>
+              @auth
+                @if (count(Cart::getContent()))
+                  <a href="{{ route('cart.checkout') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">VER CARRITO <span class="badge badge-danger">{{ count(Cart::getContent()) }}</span></a>
+                @endif
+              @endauth
+          </div>
             </div>
           </div>
         </div>
@@ -132,6 +139,13 @@
         @can('admin.home')
           <a href="{{ route('admin.home') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Administración</a>
         @endcan
+      </div>
+      <div>
+            @auth
+              @if (count(Cart::getContent()))
+                <a href="{{ route('cart.checkout') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">VER CARRITO <span class="badge badge-danger">{{ count(Cart::getContent()) }}</span></a>
+              @endif
+            @endauth
       </div>
       @auth
         <div class="border-t border-gray-700 pt-4 pb-3">

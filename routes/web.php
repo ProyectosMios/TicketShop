@@ -26,3 +26,14 @@ Route::get('/concierto/{concierto}',[\App\Http\Controllers\ConciertoController::
 
 Route::get('/artista',[\App\Http\Controllers\ArtistaController::class, 'index'])->name('artista.index');
 
+
+Route::post('/cart-add',[\App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
+
+Route::get('/cart-checkout',[\App\Http\Controllers\CartController::class, 'cart'])->name('cart.checkout');
+
+Route::post('/update-cart', [\App\Http\Controllers\CartController::class, 'updateCart'])->name('cart.update');
+
+Route::post('/cart-clear',[\App\Http\Controllers\CartController::class, 'clear'])->name('cart.clear');
+
+Route::post('/cart-removeitem',[\App\Http\Controllers\CartController::class, 'removeitem'])->name('cart.removeitem');
+
