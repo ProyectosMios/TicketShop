@@ -20,16 +20,18 @@ class UserSeeder extends Seeder
             'name' => 'Aaron',
             'email' => 'aaronsuarezsecades@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('aaron'),
-            'foto' => 'aaron.jpg'
+            'password' => bcrypt('aaron')
         ])-> assignRole('admin');
+
+        $usuarioAdmin->addMedia('C:/laragon/www/TicketShop/public/perfil/aaron.jpg')
+                ->usingFileName('aaron.jpg')
+                ->toMediaCollection('perfils');
 
         $usuario = User::create([
             'name' => 'Tino',
             'email' => 'tinodeve@hotmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('tinodeve'),
-            'foto' => 'tino.jpg'
+            'password' => bcrypt('tinodeve')
         ])-> assignRole('usuario');
         
         /*foreach(Role::all() as $role) {

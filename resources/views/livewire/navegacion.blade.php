@@ -59,7 +59,7 @@
                     @if (Auth::guest())
                       <img class="h-8 w-8 rounded-full" src="imagen/logo.png" alt="">
                     @else
-                      <img class="h-8 w-8 rounded-full" src="perfil/{{ Auth::user()->foto }}" alt="">  
+                      <img class="h-8 w-8 rounded-full" src="{{ Auth::user()->getMedia('perfils')->first()->getUrl('thumb') }}" alt="">  
                     @endif          
                   </button>
                 @endauth
@@ -154,7 +154,7 @@
               @if (Auth::guest())
                 <img class="h-8 w-8 rounded-full" src="imagen/logo.png" alt="">
               @else
-                <img class="h-8 w-8 rounded-full" src="perfil/{{ Auth::user()->foto }}" alt="">  
+                <img class="h-8 w-8 rounded-full" src="{{ Auth::user()->getMedia('perfils')->first()->getUrl('thumb') }}" alt="">  
               @endif
             </div>
             <div class="ml-3">
