@@ -25,7 +25,6 @@
                     <tr>
                         <td class="hidden pb-4 md:table-cell">
                         <a href="#">
-                            <h1>Foto: {{ $item->urlfoto }}</h1>
                             <img src="{{ Storage::url($item->urlfoto) }}" class="w-20 rounded" alt="Thumbnail">
                         </a>
                         </td>
