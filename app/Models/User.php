@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
+use Illuminate\Support\Facades\Auth;
+
 use Laravel\Sanctum\HasApiTokens;
 
 use Spatie\Permission\Traits\HasRoles;
@@ -52,7 +55,7 @@ class User extends Authenticatable implements HasMedia
 
     public function adminlte_image()
     {
-        return 'https://picsum.photos/300/300';
+        return Auth::user()->getMedia('perfils')->first()->getUrl('thumb');
     }
 
     public function adminlte_desc()

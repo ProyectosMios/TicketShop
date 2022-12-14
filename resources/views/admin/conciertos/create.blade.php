@@ -7,7 +7,17 @@
 @endsection
 
 @section("content")
-    @include("admin.conciertos.formulario")
+<div class="card">
+    <div class="card-body">
+        {!! Form::open(['route' => $route,'autocomplete' => 'off','files' => true]) !!}
+            {!! Form::hidden('imagen', 'imagen.png') !!}
+            
+            @include('admin.conciertos.fragmentos.formulario')
+
+            {!! Form::submit($textButton, ['class' => 'btn btn-primary']) !!}
+        {!! Form::close() !!}
+    </div>
+</div>
 @endsection
 
 @section('css')

@@ -62,7 +62,7 @@ class ConciertoController extends Controller
             "artista_id" => "required",
             "fechacelebracion" => "required",
             "informacion" => "required|string|min:10",
-            "precio" => "required"
+            "precio" => "required|integer"
         ]);
 
         $concierto = Concierto::create($request->only("nombre","provincia_id","artista_id","fechacelebracion","informacion","precio"));
@@ -102,8 +102,8 @@ class ConciertoController extends Controller
         $title = __("Editar Concierto");
         $textButton = __("Actualizar");
         $route = route("admin.conciertos.update", ["concierto" => $concierto]);
-        $provincias = Provincia::all();
-        $artistas = Artista::all();
+        $provincias = Provincia::pluck('nombre','id');
+        $artistas = Artista::pluck('nombre','id');
         return view("admin.conciertos.edit", compact("update","title","textButton","route","concierto","provincias","artistas"));
     }
 
@@ -117,15 +117,31 @@ class ConciertoController extends Controller
     public function update(Request $request, Concierto $concierto)
     {
         $this->validate($request, [
-            "imagen" => "required",
             "nombre" => "required",
             "provincia_id" => "required",
             "artista_id" => "required",
             "informacion" => "required|string|min:10",
             "fechacelebracion" => "required",
-            "precio" => "required"
+            "precio" => "required|integer"
         ]);
-        $concierto->fill($request->only("imagen","nombre","provincia_id", "artista_id", "informacion", "fechacelebracion", "precio"))->save();
+        $concierto->fill($request->only("nombre","provincia_id", "artista_id", "informacion", "fechacelebracion", "precio"))->save();
+
+        if($request->file('imagen')){
+            $imagen = Storage::put('conciertos',$request->file('imagen'));
+
+            if($concierto->imagen){
+                Storage::delete($concierto->imagen->direccion);
+
+                $concierto->imagen->update([
+                    'direccion' => $imagen
+                ]);
+            }else{
+                $concierto->imagen()->create([
+                    'direccion' => $imagen
+                ]);
+            }
+        }
+
         return redirect(route("admin.conciertos.index"))
             ->with("success",__("Concierto actualizado!"));
     }

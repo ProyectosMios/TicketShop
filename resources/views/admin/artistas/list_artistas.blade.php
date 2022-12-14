@@ -24,7 +24,7 @@
 
                     <td class="border px-4 py-2">{{ $artista->nombre }}</td>
 
-                    <td class="border px-4 py-2">{{ $artista->informacion }}</td>
+                    <td class="border px-4 py-2">{!! $artista->informacion !!}</td>
 
                     <td class="border px-4 py-2">
                         <a href="{{ route('admin.artistas.edit', ['artista' => $artista]) }}" class="btn btn-primary text-blue-400">{{ __("Editar") }}</a>

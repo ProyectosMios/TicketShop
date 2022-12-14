@@ -25,6 +25,7 @@
                     <tr>
                         <td class="hidden pb-4 md:table-cell">
                         <a href="#">
+                            <h1>Foto: {{ $item->urlfoto }}</h1>
                             <img src="{{ Storage::url($item->urlfoto) }}" class="w-20 rounded" alt="Thumbnail">
                         </a>
                         </td>
@@ -38,7 +39,7 @@
                             <div class="relative flex flex-row justify-center w-full h-8">
                                 <form action="{{ route('cart.update') }}" method="POST">
                                     @csrf
-                                    <input type="hidden" name="id" value="{{ $item->id}}" >
+                                    <input type="hidden" name="id" value="{{ $item->id }}" >
                                     <input type="number" name="quantity" value="{{ $item->quantity }}" class="w-20 text-center bg-gray-300" />
                                     <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">Actualizar</button>
                                 </form>

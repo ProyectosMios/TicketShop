@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Cart;
 use App\Models\Concierto;
 
-
 class CartController extends Controller
 {
     
@@ -19,7 +18,7 @@ class CartController extends Controller
             $concierto->nombre, 
             $concierto->precio, 
             1,
-            array("urlfoto"=>url($concierto->imagen->direccion))
+            array("urlfoto"=>$concierto->imagen->direccion)
            
         );
         return back()->with('success',"$concierto->nombre ¡se ha agregado con éxito al carrito!");

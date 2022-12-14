@@ -8,8 +8,11 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+        <script src="{{ asset('js/vendor/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/jquery-ui/jquery-ui.min.js') }}"></script>
         
         <!-- Styles -->
+        <link href="{{ asset('vendor/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet">
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
         @livewireStyles

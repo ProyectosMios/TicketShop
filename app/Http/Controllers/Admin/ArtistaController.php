@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Artista;
 
+use Illuminate\Support\Facades\Storage;
+
 class ArtistaController extends Controller
 {
     public function __constructor(){
@@ -51,7 +53,15 @@ class ArtistaController extends Controller
             "nombre" => "required",
             "informacion" => "nullable|string|min:10"
         ]);
-        Artista::create($request->only("nombre","informacion"));
+        $artista = Artista::create($request->only("nombre","informacion"));
+
+        if($request->file('foto')){
+            $foto = Storage::put('artistas',$request->file('foto'));
+
+            $artista->foto()->create([
+                'direccion' => $foto
+            ]);
+        }
 
         return redirect(route("admin.artistas.index"))
         ->with("success",__("Artista creado!"));
@@ -97,6 +107,23 @@ class ArtistaController extends Controller
             "informacion" => "nullable|string|min:10"
         ]);
         $artista->fill($request->only("nombre", "informacion"))->save();
+
+        if($request->file('foto')){
+            $imagen = Storage::put('artistas',$request->file('foto'));
+
+            if($artista->foto){
+                Storage::delete($artista->foto->direccion);
+
+                $artista->foto->update([
+                    'direccion' => $imagen
+                ]);
+            }else{
+                $artista->foto()->create([
+                    'direccion' => $imagen
+                ]);
+            }
+        }
+
         return redirect(route("admin.artistas.index"))
         ->with("success",__("Artista actualizado!"));
     }

@@ -14,4 +14,9 @@ class Artista extends Model
     public function conciertos() {
         return $this->hasMany(Concierto::class);
     }
+
+    //Relacion uno a uno polimorfica
+    public function foto(){
+        return $this->morphOne(Imagen::class, 'imagenable');
+    }
 }

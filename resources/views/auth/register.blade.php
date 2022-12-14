@@ -12,7 +12,7 @@
         <div class="-mx-3 md:flex mb-6">
           <div class="md:w-1/2 px-3 mb-6 md:mb-0">
             <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="name">
-              {{ __('Name') }}:
+              {{ __('Nombre') }}:
             </label>
             <input class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3 @error('name')  border-red-500 @enderror" 
                 id="name" name="name" type="text" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -24,7 +24,7 @@
           </div>
           <div class="md:w-1/2 px-3">
             <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="mail">
-              {{ __('E-Mail Address') }}:
+              {{ __('Dirección de Email') }}:
             </label>
             <input class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3 @error('email') border-red-500 @enderror"
                  id="email" name="email" type="mail" value="{{ old('email') }}" required autocomplete="email">
@@ -39,7 +39,7 @@
         <div class="-mx-3 md:flex mb-6">
           <div class="md:w-1/2 px-3 mb-6 md:mb-0">
             <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="password">
-              {{ __('Password') }}:
+              {{ __('Contraseña') }}:
             </label>
             <input class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3 @error('password') border-red-500 @enderror" 
                 id="password" type="password" name="password" required autocomplete="new-password">
@@ -51,7 +51,7 @@
           </div>
           <div class="md:w-1/2 px-3">
             <label class="uppercase tracking-wide text-black text-xs font-bold mb-2" for="password-confirm">
-              {{ __('Confirm Password') }}:
+              {{ __('Confirmar contraseña') }}:
             </label>
             <input class="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" type="password" id="title" 
                 name="password_confirmation" required autocomplete="new-password">
@@ -70,7 +70,7 @@
         <div class="-mx-3 md:flex mt-2">
           <div class="md:w-full px-3">
             <button class="md:w-full bg-gray-900 text-white font-bold py-2 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full">
-              Register
+              Registrar usuario
             </button>
           </div>
         </div>

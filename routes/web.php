@@ -37,3 +37,5 @@ Route::post('/cart-clear',[\App\Http\Controllers\CartController::class, 'clear']
 
 Route::post('/cart-removeitem',[\App\Http\Controllers\CartController::class, 'removeitem'])->name('cart.removeitem');
 
+
+Route::get('busqueda/conciertos',[\App\Http\Controllers\BusquedaController::class, 'conciertos'])->name('busqueda.conciertos');
