@@ -9,7 +9,7 @@
 @section("content")
     <div class="card">
         <div class="card-body">
-            {!! Form::model($concierto,['route' => ['admin.conciertos.update', $concierto->id],'autocomplete' => 'off','files' => true, 'method' => 'put']) !!}
+            {!! Form::model($concierto,['route' => ['admin.conciertos.update', $concierto->id],'autocomplete' => 'off','files' => true, 'method' => 'put','enctype'=>'multipart/form-data']) !!}
                 
                 @include('admin.conciertos.fragmentos.formulario')
 

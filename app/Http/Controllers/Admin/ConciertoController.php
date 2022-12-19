@@ -62,7 +62,7 @@ class ConciertoController extends Controller
             "artista_id" => "required",
             "fechacelebracion" => "required",
             "informacion" => "required|string|min:10",
-            "precio" => "required|integer"
+            "precio" => "required"
         ]);
 
         $concierto = Concierto::create($request->only("nombre","provincia_id","artista_id","fechacelebracion","informacion","precio"));

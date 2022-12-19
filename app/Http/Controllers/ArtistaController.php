@@ -15,6 +15,6 @@ class ArtistaController extends Controller
     public function index()
     {
         $artistas = Artista::all();
-        return view('artistas.list_artistas',compact("artistas"));
+        return view('artistas.listar_artistas',compact("artistas"));
     }
 }

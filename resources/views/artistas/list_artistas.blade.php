@@ -24,7 +24,7 @@
 
                                 <td class="border px-4 py-2">{{ $artista->nombre }}</td>
 
-                                <td class="border px-4 py-2">{{ $artista->informacion }}</td>
+                                <td class="border px-4 py-2">{!! $artista->informacion !!}</td>
 
                             </tr>
                         @empty

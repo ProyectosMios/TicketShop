@@ -13,12 +13,14 @@
     <main>
         <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
             <!-- Replace with your content -->
-            <form action="{{ route('concierto.index') }}" method="get">
-                <div class="btn-group">
-                        <input type="text" class="form-control" name="busqueda" id="busqueda">
-                        <input type="submit" class="btn btn-primary" value="Buscar">
+            <div class="form-row">
+                <div class="col-sm-4 m">
+                    <input type="text" class="form-control" name="busqueda">
                 </div>
-            </form>
+                <div class="col-auto">
+                    <input type="submit" class="btn btn-primary" value="Buscar">
+                </div>
+            </div>
             <div class="px-4 py-6 sm:px-0">
                 <!-- <div class="h-96 rounded-lg border-4 border-dashed border-gray-200"></div> -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 py-8">

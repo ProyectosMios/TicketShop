@@ -9,7 +9,7 @@
 @section("content")
 <div class="card">
     <div class="card-body">
-        {!! Form::open(['route' => 'admin.artistas.store','autocomplete' => 'off','files' => true]) !!}
+        {!! Form::open(['route' => 'admin.artistas.store','autocomplete' => 'off','files' => true,'enctype'=>'multipart/form-data']) !!}
             {!! Form::hidden('imagen', 'imagen.png') !!}
             
             @include('admin.artistas.fragmentos.formulario')
